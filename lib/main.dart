@@ -27,7 +27,8 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: ChangeNotifierProvider(
-          create: (context) => ThemeProvider(), child: const CleanArquiBase()),
+          create: (context) => DarkThemeProvider(),
+          child: const CleanArquiBase()),
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:clean_arqui_base/global/theme_data.dart';
 import 'package:provider/provider.dart';
 import 'package:clean_arqui_base/provider.dart';
 import 'package:clean_arqui_base/router.dart';
@@ -13,6 +14,7 @@ class CleanArquiBase extends StatefulWidget {
 }
 
 class _CleanArquiBaseState extends State<CleanArquiBase> {
+  DarkThemeProvider themeChangeProvider = DarkThemeProvider();
   final _navigatorKey = GlobalKey<NavigatorState>();
   late Timer _timer;
   @override
@@ -20,6 +22,7 @@ class _CleanArquiBaseState extends State<CleanArquiBase> {
     // TODO: implement initState
     super.initState();
     _initializeTimer();
+    getCurrentAppTheme();
   }
 
   void _initializeTimer() {
@@ -31,25 +34,35 @@ class _CleanArquiBaseState extends State<CleanArquiBase> {
     _initializeTimer();
   }
 
+  void getCurrentAppTheme() async {
+    themeChangeProvider.darkTheme =
+        await themeChangeProvider.darkThemePreference.getTheme();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      behavior: HitTestBehavior.translucent,
-      onTap: _handleUserInteraction,
-      onPanDown: _handleUserInteraction,
-      child: MaterialApp(
-        navigatorKey: _navigatorKey,
-        debugShowCheckedModeBanner: false,
-        locale: const Locale('es'),
-        localizationsDelegates: [
-          GlobalMaterialLocalizations.delegate,
-          GlobalWidgetsLocalizations.delegate,
-          GlobalCupertinoLocalizations.delegate,
-        ],
-        supportedLocales: [Locale('en', ''), Locale('es', '')],
-        theme: context.watch<ThemeProvider>().getTheme(),
-        onGenerateRoute: RouteGenerator.generatRoute,
-      ),
-    );
+    return ChangeNotifierProvider(create: (_) {
+      return themeChangeProvider;
+    }, child: Consumer<DarkThemeProvider>(
+        builder: (BuildContext context, value, Widget? child) {
+      return GestureDetector(
+        behavior: HitTestBehavior.translucent,
+        onTap: _handleUserInteraction,
+        onPanDown: _handleUserInteraction,
+        child: MaterialApp(
+          navigatorKey: _navigatorKey,
+          debugShowCheckedModeBanner: false,
+          locale: const Locale('es'),
+          localizationsDelegates: const [
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+          ],
+          supportedLocales: const [Locale('en', ''), Locale('es', '')],
+          theme: Styles.themeData(themeChangeProvider.darkTheme, context),
+          onGenerateRoute: RouteGenerator.generatRoute,
+        ),
+      );
+    }));
   }
 }

@@ -1,33 +1,29 @@
-import 'package:clean_arqui_base/global/theme_data.dart';
 import 'package:clean_arqui_base/utils/storage_manager.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class ThemeProvider with ChangeNotifier {
-  ThemeData _themeData = lightTheme;
-  ThemeData getTheme() => _themeData;
+class DarkThemePreference {
+  static const THEME_STATUS = "THEMESTATUS";
 
-  ThemeProvider() {
-    StorageManager.readData('themeMode').then((value) {
-      final themeData = value ?? 'light';
-      themeData == 'light' ? _themeData = lightTheme : _themeData = darkTheme;
-      notifyListeners();
-    });
-    void setLightTheme() async {
-      StorageManager.saveData('themeMode', 'light');
-      notifyListeners();
-    }
+  setDarkTheme(bool value) async {
+    StorageManager.saveData(THEME_STATUS, value);
+  }
 
-    void setDarkTheme() async {
-      StorageManager.saveData('themeMode', 'dark');
-      notifyListeners();
-    }
+  Future<bool> getTheme() async {
+    final bool? srt = await StorageManager.readData(THEME_STATUS);
+    return srt ?? false;
+  }
+}
 
-    void changeMode() async {
-      _themeData = _themeData == lightTheme ? darkTheme : lightTheme;
-      StorageManager.saveData(
-          'themeMode', _themeData == lightTheme ? 'light' : 'dark');
-      notifyListeners();
-    }
+class DarkThemeProvider with ChangeNotifier {
+  DarkThemePreference darkThemePreference = DarkThemePreference();
+  bool _darkTheme = false;
+
+  bool get darkTheme => _darkTheme;
+
+  set darkTheme(bool value) {
+    _darkTheme = value;
+    darkThemePreference.setDarkTheme(value);
+    notifyListeners();
   }
 }
