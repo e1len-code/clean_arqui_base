@@ -1,3 +1,4 @@
+import 'package:clean_arqui_base/config/presentation/config_page.dart';
 import 'package:clean_arqui_base/provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -12,18 +13,23 @@ class AuthPage extends StatefulWidget {
 class _AuthPageState extends State<AuthPage> {
   @override
   Widget build(BuildContext context) {
-    final themeProvider = Provider.of<DarkThemeProvider>(context);
     return Scaffold(
-      appBar: AppBar(),
-      body: Center(
-          child: IconButton(
+      appBar: AppBar(
+        actions: [
+          IconButton(
               onPressed: () {
-                setState(() {
-                  bool theme = themeProvider.darkTheme;
-                  themeProvider.darkTheme = !theme;
-                });
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => ConfigPage()));
               },
-              icon: const Icon(Icons.abc_rounded))),
+              icon: const Icon(Icons.key))
+        ],
+      ),
+      body: const Center(
+        child: Text(
+          'Bienvenido',
+          style: TextStyle(fontSize: 50),
+        ),
+      ),
     );
   }
 }
