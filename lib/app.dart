@@ -1,10 +1,10 @@
 import 'dart:async';
-import 'package:clean_arqui_base/global/theme_data.dart';
-import 'package:provider/provider.dart';
+import 'package:clean_arqui_base/core/global/theme_data.dart';
 import 'package:clean_arqui_base/provider.dart';
 import 'package:clean_arqui_base/router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:provider/provider.dart';
 
 class CleanArquiBase extends StatefulWidget {
   const CleanArquiBase({Key? key}) : super(key: key);

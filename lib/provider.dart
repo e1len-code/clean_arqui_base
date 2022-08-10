@@ -1,4 +1,4 @@
-import 'package:clean_arqui_base/utils/storage_manager.dart';
+import 'package:clean_arqui_base/core/utils/storage_manager.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

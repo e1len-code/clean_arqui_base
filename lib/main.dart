@@ -6,7 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:bloc/bloc.dart';
 import 'package:provider/provider.dart';
 
-import 'auth/presentation/bloc/auth_bloc.dart';
+import 'package:clean_arqui_base/feature/auth/presentation/bloc/auth_bloc.dart';
 import 'injections.dart';
 
 void main() async {

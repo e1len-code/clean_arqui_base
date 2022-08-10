@@ -1,5 +1,4 @@
-import 'package:clean_arqui_base/auth/presentation/pages/auth_page.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:clean_arqui_base/feature/auth/presentation/pages/auth_page.dart';
 import 'package:flutter/material.dart';
 
 class RouteGenerator {
@@ -9,7 +8,7 @@ class RouteGenerator {
   static Route<dynamic> generatRoute(RouteSettings settings) {
     switch (settings.name) {
       case initPage:
-        return MaterialPageRoute(builder: (_) => AuthPage());
+        return MaterialPageRoute(builder: (_) => const AuthPage());
       default:
         throw const RouteException("Route no found");
     }

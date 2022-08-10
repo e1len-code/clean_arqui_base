@@ -1,7 +1,5 @@
-import 'package:clean_arqui_base/config/presentation/config_page.dart';
-import 'package:clean_arqui_base/provider.dart';
+import 'package:clean_arqui_base/feature/config/presentation/config_page.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class AuthPage extends StatefulWidget {
   const AuthPage({Key? key}) : super(key: key);
