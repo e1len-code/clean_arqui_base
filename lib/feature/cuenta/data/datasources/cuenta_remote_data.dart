@@ -90,7 +90,7 @@ class CuentaRemoteDataImple extends CuentaRemoteData {
 
   @override
   Future<List<Cuenta>> list() async {
-    final url = Uri.parse('${sl<NetworkInfo>().url}/$CUENTA/listar');
+    final url = Uri.parse('${sl<NetworkInfo>().url}/$CUENTA');
     final response = await client.get(url, headers: sl<Headers>().headers);
     if (response.statusCode == 200) {
       final listCuentaJson = jsonDecode(response.body);
