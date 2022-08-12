@@ -1,4 +1,5 @@
 import 'package:clean_arqui_base/app.dart';
+import 'package:clean_arqui_base/feature/cuenta/presentation/bloc/cuenta_bloc.dart';
 import 'package:clean_arqui_base/provider.dart';
 import 'package:flutter/material.dart';
 import 'package:clean_arqui_base/injections.dart' as di;
@@ -24,6 +25,9 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider(
           create: (context) => sl<AuthBloc>(),
+        ),
+        BlocProvider(
+          create: (context) => sl<CuentaBloc>(),
         ),
       ],
       child: ChangeNotifierProvider(
