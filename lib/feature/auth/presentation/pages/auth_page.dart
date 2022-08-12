@@ -1,4 +1,5 @@
 import 'package:clean_arqui_base/feature/config/presentation/config_page.dart';
+import 'package:clean_arqui_base/feature/cuenta/presentation/pages/cuenta_page.dart';
 import 'package:flutter/material.dart';
 
 class AuthPage extends StatefulWidget {
@@ -22,11 +23,13 @@ class _AuthPageState extends State<AuthPage> {
               icon: const Icon(Icons.key))
         ],
       ),
-      body: const Center(
-        child: Text(
-          'Bienvenido',
-          style: TextStyle(fontSize: 50),
-        ),
+      body: Center(
+        child: TextButton(
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => CuentaPage()));
+            },
+            child: const Text('Cuentas')),
       ),
     );
   }
