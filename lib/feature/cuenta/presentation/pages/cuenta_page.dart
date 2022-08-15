@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:clean_arqui_base/feature/cuenta/domain/entities/cuenta.dart';
 import 'package:clean_arqui_base/feature/cuenta/presentation/bloc/cuenta_bloc.dart';
 import 'package:clean_arqui_base/feature/cuenta/presentation/bloc/cuenta_bloc.dart';
+import 'package:clean_arqui_base/feature/cuenta/presentation/widgets/cuenta_list_widget.dart';
 import 'package:clean_arqui_base/provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -49,52 +50,7 @@ class _CuentaPageState extends State<CuentaPage> {
               child: Text('Cargando...'),
             );
           } else {
-            return Scrollbar(
-              child: ListView.builder(
-                  itemCount: _list.length,
-                  itemBuilder: (context, index) {
-                    return Card(
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  _list[index].codCuenta,
-                                  style: const TextStyle(
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                Container(
-                                  decoration: BoxDecoration(
-                                      color: Theme.of(context)
-                                          .errorColor
-                                          .withOpacity(0.25),
-                                      borderRadius: const BorderRadius.all(
-                                          Radius.circular(5))),
-                                  child: Padding(
-                                      padding: const EdgeInsets.all(6),
-                                      child: Text(
-                                        (index + 1).toString(),
-                                        style: const TextStyle(
-                                            fontWeight: FontWeight.bold),
-                                      )),
-                                ),
-                              ],
-                            ),
-                            Text(
-                              _list[index].denominacionCuenta,
-                            ),
-                            Text(_list[index].tipoCuenta),
-                            Text(_list[index].obsCuenta)
-                          ],
-                        ),
-                      ),
-                    );
-                  }),
-            );
+            return CuentaListWidget(listCuenta: _list);
           }
         },
       ),
