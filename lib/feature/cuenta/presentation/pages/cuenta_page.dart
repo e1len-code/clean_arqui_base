@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:clean_arqui_base/core/widgets/snackbar_widget.dart';
 import 'package:clean_arqui_base/feature/cuenta/domain/entities/cuenta.dart';
 import 'package:clean_arqui_base/feature/cuenta/presentation/bloc/cuenta_bloc.dart';
 import 'package:clean_arqui_base/feature/cuenta/presentation/bloc/cuenta_bloc.dart';
@@ -38,6 +39,9 @@ class _CuentaPageState extends State<CuentaPage> {
         listener: (context, state) {
           if (state is LoadingState) {}
           if (state is ListedState) {
+            SnackWidget.showMessage(context, 'Recuperado Correctamente!!!',
+                'Todas las cuentas se ha recuperado exitosamente',
+                typeMessage: TypeMessage.success);
             _list = state.listCuenta;
           }
           if (state is ErrorState) {
