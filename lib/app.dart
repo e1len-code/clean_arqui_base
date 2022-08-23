@@ -5,6 +5,7 @@ import 'package:clean_arqui_base/router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 
 class CleanArquiBase extends StatefulWidget {
   const CleanArquiBase({Key? key}) : super(key: key);
@@ -23,6 +24,7 @@ class _CleanArquiBaseState extends State<CleanArquiBase> {
     super.initState();
     _initializeTimer();
     getCurrentAppTheme();
+    configLoading();
   }
 
   void _initializeTimer() {
@@ -37,6 +39,21 @@ class _CleanArquiBaseState extends State<CleanArquiBase> {
   void getCurrentAppTheme() async {
     themeChangeProvider.darkTheme =
         await themeChangeProvider.darkThemePreference.getTheme();
+  }
+
+  void configLoading() {
+    EasyLoading.instance
+      ..indicatorType = EasyLoadingIndicatorType.wave
+      ..loadingStyle = EasyLoadingStyle.custom
+      ..indicatorSize = 24.0
+      ..radius = 10.0
+      ..progressColor = Colors.white
+      ..backgroundColor = Colors.transparent
+      ..indicatorColor = Colors.white
+      ..textColor = Colors.white
+      ..maskColor = Colors.blue.withOpacity(0.5)
+      ..userInteractions = false
+      ..dismissOnTap = false;
   }
 
   @override
@@ -61,6 +78,7 @@ class _CleanArquiBaseState extends State<CleanArquiBase> {
           supportedLocales: const [Locale('en', ''), Locale('es', '')],
           theme: Styles.themeData(themeChangeProvider.darkTheme, context),
           onGenerateRoute: RouteGenerator.generatRoute,
+          builder: EasyLoading.init(),
         ),
       );
     }));

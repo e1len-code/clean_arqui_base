@@ -30,7 +30,8 @@ dev_dependencies:
   equatable: ^2.0.3
   connectivity_plus: ^2.3.6
   dartz: ^0.10.1
-
+  flutter_easyloading: ^3.0.5
+  
   flutter_localizations: # Add this line
     sdk: flutter         # Add this line
 

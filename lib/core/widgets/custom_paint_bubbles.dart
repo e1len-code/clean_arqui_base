@@ -7,15 +7,13 @@ class CustomPaintBubbles extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double WIDTH = 50;
-    return Container(
-        child: //Add this CustomPaint widget to the Widget Tree
-            CustomPaint(
+    return CustomPaint(
       size: Size(
           WIDTH,
           (WIDTH * 1.728110599078341)
               .toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
       painter: RPSCustomPainter(),
-    ));
+    );
   }
 }
 

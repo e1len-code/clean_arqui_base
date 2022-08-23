@@ -1,5 +1,5 @@
-import 'package:clean_arqui_base/core/widgets/custom_paint_cloud.dart';
 import 'package:clean_arqui_base/core/widgets/custom_paint_bubbles.dart';
+import 'package:clean_arqui_base/core/widgets/custom_paint_cloud.dart';
 import 'package:flutter/material.dart';
 
 enum TypeMessage { danger, success, warning, info }
@@ -62,13 +62,13 @@ class _CustomContentState extends State<CustomContent> {
   Color getColor(TypeMessage typeMessage) {
     switch (typeMessage) {
       case TypeMessage.danger:
-        return Theme.of(context).errorColor.withOpacity(0.5);
+        return Colors.red.shade400;
       case TypeMessage.warning:
         return Colors.yellow.shade400;
       case TypeMessage.success:
         return Colors.green.shade400;
       default:
-        return Theme.of(context).scaffoldBackgroundColor.withOpacity(0.25);
+        return Theme.of(context).scaffoldBackgroundColor;
     }
   }
 

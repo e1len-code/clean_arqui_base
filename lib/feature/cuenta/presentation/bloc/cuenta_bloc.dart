@@ -9,12 +9,19 @@ part 'cuenta_state.dart';
 class CuentaBloc extends Bloc<CuentaEvent, CuentaState> {
   final CuentaUseCase cuentaUseCase;
   CuentaBloc({required this.cuentaUseCase}) : super(CuentaInitial()) {
-    on<ListEvent>(((event, emit) async {
+    on<ListEvent>((event, emit) async {
       emit(LoadingState());
       final failureOrListed = await cuentaUseCase.list();
       emit(failureOrListed.fold(
           (failure) => ErrorState(message: failure.message),
           (listCuenta) => ListedState(listCuenta: listCuenta)));
-    }));
+    });
+    on<RetriveEvent>((event, emit) async {
+      emit(LoadingState());
+      final failureOrRetrieve = await cuentaUseCase.getCuenta(event.id);
+      emit(failureOrRetrieve.fold(
+          (failure) => ErrorState(message: failure.message),
+          (cuenta) => RetrivedState(cuenta: cuenta)));
+    });
   }
 }
