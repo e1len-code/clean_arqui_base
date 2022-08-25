@@ -7,4 +7,10 @@ class LoginParams {
     required this.password,
     required this.token,
   });
+  Map<String, dynamic> toJson() {
+    return {
+      "correoElectronico": codUsuario,
+      "password": password,
+    };
+  }
 }
