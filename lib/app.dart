@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:overlay_support/overlay_support.dart';
 
 class CleanArquiBase extends StatefulWidget {
   const CleanArquiBase({Key? key}) : super(key: key);
@@ -66,19 +67,21 @@ class _CleanArquiBaseState extends State<CleanArquiBase> {
         behavior: HitTestBehavior.translucent,
         onTap: _handleUserInteraction,
         onPanDown: _handleUserInteraction,
-        child: MaterialApp(
-          navigatorKey: _navigatorKey,
-          debugShowCheckedModeBanner: false,
-          locale: const Locale('es'),
-          localizationsDelegates: const [
-            GlobalMaterialLocalizations.delegate,
-            GlobalWidgetsLocalizations.delegate,
-            GlobalCupertinoLocalizations.delegate,
-          ],
-          supportedLocales: const [Locale('en', ''), Locale('es', '')],
-          theme: Styles.themeData(themeChangeProvider.darkTheme, context),
-          onGenerateRoute: RouteGenerator.generatRoute,
-          builder: EasyLoading.init(),
+        child: OverlaySupport.global(
+          child: MaterialApp(
+            navigatorKey: _navigatorKey,
+            debugShowCheckedModeBanner: false,
+            locale: const Locale('es'),
+            localizationsDelegates: const [
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+              GlobalCupertinoLocalizations.delegate,
+            ],
+            supportedLocales: const [Locale('en', ''), Locale('es', '')],
+            theme: Styles.themeData(themeChangeProvider.darkTheme, context),
+            onGenerateRoute: RouteGenerator.generatRoute,
+            builder: EasyLoading.init(),
+          ),
         ),
       );
     }));
