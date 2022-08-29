@@ -3,6 +3,7 @@ import 'package:clean_arqui_base/feature/auth/domain/entities/loginParams.dart';
 import 'package:clean_arqui_base/feature/auth/presentation/bloc/auth_bloc.dart';
 import 'package:clean_arqui_base/feature/config/presentation/config_page.dart';
 import 'package:clean_arqui_base/feature/cuenta/presentation/pages/cuenta_page.dart';
+import 'package:clean_arqui_base/feature/webview/presentation/webview_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -33,6 +34,11 @@ class _AuthPageState extends State<AuthPage> {
             codUsuario: _emailController.text,
             password: _passwordController.text,
             token: '')));
+  }
+
+  _webView() {
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => WebviewPage()));
   }
 
   @override
@@ -77,6 +83,10 @@ class _AuthPageState extends State<AuthPage> {
                 TextButton(
                   onPressed: _login,
                   child: const Text('Iniciar Sesion'),
+                ),
+                TextButton(
+                  onPressed: _webView,
+                  child: const Text('Go to WebView'),
                 ),
               ],
             ),
