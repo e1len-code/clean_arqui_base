@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>240056675197-982630e992s7mah1r0plvsqbeo3gb3dr.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.240056675197-982630e992s7mah1r0plvsqbeo3gb3dr</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCU83a2D_zjH43zMlEvso6tBKepTHch82s</string>
+	<key>GCM_SENDER_ID</key>
+	<string>240056675197</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.cleanArquiBase</string>
+	<key>PROJECT_ID</key>
+	<string>flutter-practice-fcm</string>
+	<key>STORAGE_BUCKET</key>
+	<string>flutter-practice-fcm.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:240056675197:ios:42fa561c3f1551953c7a14</string>
+</dict>
+</plist>
