@@ -28,6 +28,7 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   FirebaseMessaging messaging = FirebaseMessaging.instance;
+  FirebaseMessaging.instance.subscribeToTopic("all");
 
   NotificationSettings settings = await messaging.requestPermission(
     alert: true,
