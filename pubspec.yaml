@@ -18,7 +18,7 @@ dependencies:
   firebase_core: ^1.21.1
   firebase_messaging: ^13.0.0
   firebase_analytics: ^9.3.3
-  flutter_local_notifications: ^9.8.0+1
+  flutter_local_notifications: ^9.9.1
   webview_flutter: ^3.0.4
   radio_player: ^1.1.1
 
@@ -37,7 +37,6 @@ dev_dependencies:
   connectivity_plus: ^2.3.6
   dartz: ^0.10.1
   flutter_easyloading: ^3.0.5
-  
   flutter_localizations: # Add this line
     sdk: flutter         # Add this line
 
