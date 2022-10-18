@@ -20,6 +20,7 @@ dependencies:
   firebase_analytics: ^9.3.3
   flutter_local_notifications: ^9.8.0+1
   webview_flutter: ^3.0.4
+  radio_player: ^1.1.1
 
 dev_dependencies:
   flutter_test:

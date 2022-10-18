@@ -7,6 +7,8 @@ import 'package:clean_arqui_base/feature/webview/presentation/webview_page.dart'
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../radio_player/presentation/radio_player_page.dart';
+
 class AuthPage extends StatefulWidget {
   const AuthPage({Key? key}) : super(key: key);
 
@@ -39,6 +41,11 @@ class _AuthPageState extends State<AuthPage> {
   _webView() {
     Navigator.push(
         context, MaterialPageRoute(builder: (context) => WebviewPage()));
+  }
+
+  _radioPlayer() {
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => RadioPlayerPage()));
   }
 
   @override
@@ -87,6 +94,10 @@ class _AuthPageState extends State<AuthPage> {
                 TextButton(
                   onPressed: _webView,
                   child: const Text('Go to WebView'),
+                ),
+                TextButton(
+                  onPressed: _radioPlayer,
+                  child: const Text('Go to Radio Player'),
                 ),
               ],
             ),
